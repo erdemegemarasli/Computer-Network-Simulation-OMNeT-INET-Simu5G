@@ -1,0 +1,12 @@
+{
+"appDid" : "WARNERAPP",
+"appName" : "WarnerApp",
+"appProvider" : "bunker_net_sim.WarnerApp",
+"appInfoName" : "appInfoName_",
+"appDescription" : "appDescription_",
+"virtualComputeDescriptor" :{
+    "virtualDisk": 10,
+    "virtualCpu" : 1500,
+    "virtualMemory":10
+    }
+}
