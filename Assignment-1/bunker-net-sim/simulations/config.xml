@@ -1,0 +1,12 @@
+<config>
+	<interface hosts="mainrouter" towards="bunker1router" address="10.0.1.x" netmask="255.255.255.x"/>
+	<interface hosts="bunker1*" address="10.0.1.x" netmask="255.255.255.x"/>
+	
+	<interface hosts="mainrouter" towards="bunker2router" address="10.0.2.x" netmask="255.255.255.x"/>
+	<interface hosts="bunker2*" address="10.0.2.x" netmask="255.255.255.x"/>
+	
+	<interface hosts="mainrouter" towards="bunker3router" address="10.0.3.x" netmask="255.255.255.x"/>
+	<interface hosts="bunker3*" address="10.0.3.x" netmask="255.255.255.x"/>
+
+	<interface hosts="*" address="10.x.x.x" netmask="255.255.255.x"/>
+</config>

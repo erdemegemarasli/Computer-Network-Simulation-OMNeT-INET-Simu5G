@@ -1,0 +1,2937 @@
+file 3729034 1669575175                                         
+version 3
+run General-0-20221127-19:47:43-78598
+attr configname General
+attr datetime 20221127-19:47:43
+attr datetimef 20221127-194743
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars "$b1num=int(uniform(2, 5)), $b2num=int(uniform(2, 5)), $b3num=int(uniform(2, 5)), $xnum=int(uniform(1, 2))"
+attr iterationvarsd b1num=int(uniform(2,_5))/b2num=int(uniform(2,_5))/b3num=int(uniform(2,_5))/xnum=int(uniform(1,_2))
+attr iterationvarsf b1num=int(uniform(2,_5)),b2num=int(uniform(2,_5)),b3num=int(uniform(2,_5)),xnum=int(uniform(1,_2))-
+attr measurement "$b1num=int(uniform(2, 5)), $b2num=int(uniform(2, 5)), $b3num=int(uniform(2, 5)), $xnum=int(uniform(1, 2))"
+attr network Network
+attr processid 78598
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar b1num "int(uniform(2, 5))"
+itervar b2num "int(uniform(2, 5))"
+itervar b3num "int(uniform(2, 5))"
+itervar xnum "int(uniform(1, 2))"
+config image-path ../../../omnetpp-6.0.1/samples/inet4.4/images
+config network Network
+config sim-time-limit 300s
+config output-scalar-file results/scalars.sca
+config output-vector-file results/vectors.vec
+config seed-0-mt 1
+config *.configurator.dumpAddresses true
+config *.configurator.dumpTopology true
+config *.configurator.dumpLinks true
+config *.configurator.dumpRoutes true
+config *.configurator.config "xmldoc(\"config.xml\")"
+config *.visualizer.interfaceTableVisualizer.displayInterfaceTables true
+config *.visualizer.interfaceTableVisualizer.nodeFilter "\"not (*router*)\""
+config *.*.ipv4.arp.typename GlobalArp
+config *.*.ipv4.routingTable.netmaskRoutes "\"\""
+config *.server.numApps 1
+config *.server.app[0].typename ServerApp
+config *.server.app[0].heartbeatThreshold 15
+config *.bunker1_host_number "int(uniform(2, 5))"
+config *.bunker2_host_number "int(uniform(2, 5))"
+config *.bunker3_host_number "int(uniform(2, 5))"
+config *.nonExist_host_number "int(uniform(1, 2))"
+config *.bunker*host[*].numApps 2
+config *.bunker*host[*].app[*].destAddress "\"server\""
+config *.bunker*host[*].app[0].sendInterval "int(uniform(5s, 10s))"
+config *.bunker*host[*].app[1].sendInterval "int(uniform(6s, 12s))"
+config *.bunker*host[*].app[0].typename HeartBeatApp
+config *.bunker*host[*].app[1].typename ClientApp
+config *.bunker*host[*].app[1].bunker1_host_number "int(uniform(2, 5))"
+config *.bunker*host[*].app[1].bunker2_host_number "int(uniform(2, 5))"
+config *.bunker*host[*].app[1].bunker3_host_number "int(uniform(2, 5))"
+config *.bunker*host[*].app[1].nonExist_host_number "int(uniform(1, 2))"
+
+vector 0 Network.server.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 1 Network.server.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 2 Network.server.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 3 Network.bunker1host[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 Network.bunker1host[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 Network.bunker1host[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 Network.bunker1host[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 7 Network.bunker1host[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 8 Network.bunker1host[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 9 Network.bunker1host[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 Network.bunker1host[2].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 Network.bunker1host[2].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 Network.bunker2host[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 13 Network.bunker2host[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 14 Network.bunker2host[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 15 Network.bunker2host[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 16 Network.bunker2host[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 17 Network.bunker2host[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 18 Network.bunker2host[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 19 Network.bunker2host[2].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 20 Network.bunker2host[2].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 21 Network.bunker2host[3].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 22 Network.bunker2host[3].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 23 Network.bunker2host[3].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 24 Network.bunker3host[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 25 Network.bunker3host[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 26 Network.bunker3host[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 27 Network.bunker3host[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 28 Network.bunker3host[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 29 Network.bunker3host[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 30 Network.bunker3host[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 31 Network.bunker3host[2].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 32 Network.bunker3host[2].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 33 Network.bunker3host[3].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 34 Network.bunker3host[3].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 35 Network.bunker3host[3].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 36 Network.bunker3host[2].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 37 Network.bunker3host[2].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 38 Network.bunker3host[2].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 39 Network.bunker3host[2].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 40 Network.bunker3host[2].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 41 Network.bunker3host[2].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 42 Network.bunker3host[2].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 43 Network.bunker3host[2].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 44 Network.bunker3host[2].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 45 Network.bunker3host[2].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 46 Network.bunker3host[2].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 47 Network.bunker3router.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 48 Network.bunker3router.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 49 Network.bunker3router.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 50 Network.bunker3router.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 51 Network.bunker3router.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 52 Network.bunker3router.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 53 Network.bunker3router.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 54 Network.bunker3router.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 55 Network.bunker3router.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 56 Network.bunker3router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 57 Network.bunker3router.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 58 Network.bunker3router.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 59 Network.bunker3router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 60 Network.mainrouter.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 61 Network.mainrouter.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 62 Network.mainrouter.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 63 Network.mainrouter.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 64 Network.mainrouter.eth[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 65 Network.mainrouter.eth[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 66 Network.mainrouter.eth[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 67 Network.mainrouter.eth[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 68 Network.mainrouter.eth[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 69 Network.mainrouter.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 70 Network.mainrouter.eth[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 71 Network.mainrouter.eth[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 72 Network.mainrouter.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 73 Network.server.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 74 Network.server.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 75 Network.server.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 76 Network.server.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 77 Network.bunker2host[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 78 Network.bunker2host[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 79 Network.bunker2host[0].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 80 Network.bunker2host[1].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 81 Network.bunker2host[0].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 82 Network.bunker2host[0].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 83 Network.bunker2host[0].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 84 Network.bunker2host[0].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 85 Network.bunker2host[0].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 86 Network.bunker2host[0].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 87 Network.bunker2host[0].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 88 Network.bunker2host[0].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 89 Network.bunker2host[1].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 90 Network.bunker2host[1].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 91 Network.bunker2host[1].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 92 Network.bunker2host[1].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 93 Network.bunker2host[1].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 94 Network.bunker2host[1].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 95 Network.bunker2host[1].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 96 Network.bunker2host[1].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 97 Network.bunker2host[0].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 98 Network.bunker2host[1].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 99 Network.bunker2router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 100 Network.bunker2router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 101 Network.bunker2router.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 102 Network.bunker2router.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 103 Network.bunker2router.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 104 Network.bunker2router.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 105 Network.bunker2router.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 106 Network.bunker2router.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 107 Network.bunker2router.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 108 Network.bunker2router.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 109 Network.bunker2router.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 110 Network.bunker2router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 111 Network.bunker2router.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 112 Network.bunker2router.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 113 Network.bunker2router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 114 Network.mainrouter.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 115 Network.mainrouter.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 116 Network.bunker2host[2].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 117 Network.bunker2host[3].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 118 Network.bunker3host[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 119 Network.bunker2host[2].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 120 Network.bunker2host[3].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 121 Network.bunker3host[1].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 122 Network.bunker2host[2].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 123 Network.bunker2host[2].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 124 Network.bunker2host[2].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 125 Network.bunker2host[2].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 126 Network.bunker2host[2].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 127 Network.bunker2host[2].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 128 Network.bunker2host[2].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 129 Network.bunker2host[2].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 130 Network.bunker2host[3].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 131 Network.bunker2host[3].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 132 Network.bunker2host[3].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 133 Network.bunker2host[3].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 134 Network.bunker2host[3].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 135 Network.bunker2host[3].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 136 Network.bunker2host[3].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 137 Network.bunker2host[3].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 138 Network.bunker3host[1].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 139 Network.bunker3host[1].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 140 Network.bunker3host[1].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 141 Network.bunker3host[1].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 142 Network.bunker3host[1].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 143 Network.bunker3host[1].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 144 Network.bunker3host[1].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 145 Network.bunker3host[1].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 146 Network.bunker2host[2].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 147 Network.bunker2host[3].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 148 Network.bunker3host[1].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 149 Network.bunker2router.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 150 Network.bunker2router.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 151 Network.bunker2router.eth[4].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 152 Network.bunker2router.eth[4].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 153 Network.bunker3router.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 154 Network.bunker3router.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 155 Network.server.app[0] unsuccessfulLookup:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source unsuccessfulLookup
+attr title "Unsuccessful Lookup Count"
+vector 156 Network.server.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 157 Network.server.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 158 Network.server.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 159 Network.server.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 160 Network.server.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 161 Network.server.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 162 Network.server.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 163 Network.server.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 164 Network.server.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 165 Network.server.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 166 Network.server.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 167 Network.server.app[0] successfulLookup:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source successfulLookup
+attr title "Successful Lookup Count"
+vector 168 Network.mainrouter.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 169 Network.mainrouter.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 170 Network.mainrouter.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 171 Network.mainrouter.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 172 Network.mainrouter.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 173 Network.mainrouter.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 174 Network.mainrouter.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 175 Network.mainrouter.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 176 Network.mainrouter.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 177 Network.mainrouter.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 178 Network.mainrouter.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 179 Network.mainrouter.eth[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 180 Network.mainrouter.eth[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 181 Network.mainrouter.eth[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 182 Network.mainrouter.eth[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 183 Network.mainrouter.eth[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 184 Network.mainrouter.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 185 Network.mainrouter.eth[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 186 Network.mainrouter.eth[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 187 Network.bunker2router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 188 Network.bunker2router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 189 Network.bunker2router.eth[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 190 Network.bunker2router.eth[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 191 Network.bunker2router.eth[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 192 Network.bunker2router.eth[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 193 Network.bunker2router.eth[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 194 Network.bunker2router.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 195 Network.bunker2router.eth[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 196 Network.bunker2router.eth[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 197 Network.mainrouter.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 198 Network.bunker2router.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 199 Network.bunker3router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 200 Network.bunker3router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 201 Network.bunker3router.eth[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 202 Network.bunker3router.eth[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 203 Network.bunker3router.eth[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 204 Network.bunker3router.eth[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 205 Network.bunker3router.eth[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 206 Network.bunker3router.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 207 Network.bunker3router.eth[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 208 Network.bunker3router.eth[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 209 Network.bunker2host[2].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 210 Network.bunker2host[2].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 211 Network.bunker2host[2].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 212 Network.bunker2host[2].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 213 Network.bunker3router.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 214 Network.bunker2router.eth[4].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 215 Network.bunker2router.eth[4].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 216 Network.bunker2router.eth[4].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 217 Network.bunker2router.eth[4].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 218 Network.bunker2router.eth[4].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 219 Network.bunker2router.eth[4].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 220 Network.bunker2router.eth[4].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 221 Network.bunker2router.eth[4].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 222 Network.bunker3host[1].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 223 Network.bunker3host[1].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 224 Network.bunker3host[1].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 225 Network.bunker3host[1].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 226 Network.bunker3host[1].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 227 Network.bunker2router.eth[4].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 228 Network.bunker2host[3].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 229 Network.bunker2host[3].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 230 Network.bunker2host[3].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 231 Network.bunker2host[3].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 232 Network.bunker2host[3].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 233 Network.bunker2router.eth[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 234 Network.bunker2router.eth[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 235 Network.bunker2router.eth[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 236 Network.bunker2router.eth[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 237 Network.bunker2router.eth[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 238 Network.bunker2router.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 239 Network.bunker2router.eth[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 240 Network.bunker2router.eth[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 241 Network.bunker2router.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 242 Network.bunker2host[1].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 243 Network.bunker2host[1].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 244 Network.bunker2host[1].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 245 Network.bunker2host[1].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 246 Network.bunker1host[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 247 Network.bunker1host[2].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 248 Network.bunker1host[1].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 249 Network.bunker1host[2].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 250 Network.bunker1host[1].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 251 Network.bunker1host[1].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 252 Network.bunker1host[1].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 253 Network.bunker1host[1].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 254 Network.bunker1host[1].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 255 Network.bunker1host[1].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 256 Network.bunker1host[1].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 257 Network.bunker1host[1].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 258 Network.bunker1host[2].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 259 Network.bunker1host[2].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 260 Network.bunker1host[2].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 261 Network.bunker1host[2].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 262 Network.bunker1host[2].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 263 Network.bunker1host[2].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 264 Network.bunker1host[2].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 265 Network.bunker1host[2].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 266 Network.bunker1host[1].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 267 Network.bunker1host[2].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 268 Network.bunker1router.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 269 Network.bunker1router.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 270 Network.bunker1router.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 271 Network.bunker1router.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 272 Network.bunker1router.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 273 Network.bunker1router.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 274 Network.bunker1router.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 275 Network.bunker1router.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 276 Network.bunker1router.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 277 Network.bunker1router.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 278 Network.bunker1router.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 279 Network.bunker1router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 280 Network.bunker1router.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 281 Network.bunker1router.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 282 Network.bunker1router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 283 Network.mainrouter.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 284 Network.mainrouter.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 285 Network.mainrouter.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 286 Network.mainrouter.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 287 Network.mainrouter.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 288 Network.mainrouter.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 289 Network.mainrouter.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 290 Network.mainrouter.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 291 Network.mainrouter.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 292 Network.mainrouter.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 293 Network.mainrouter.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 294 Network.bunker1router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 295 Network.bunker1router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 296 Network.bunker1router.eth[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 297 Network.bunker1router.eth[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 298 Network.bunker1router.eth[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 299 Network.bunker1router.eth[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 300 Network.bunker1router.eth[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 301 Network.bunker1router.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 302 Network.bunker1router.eth[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 303 Network.bunker1router.eth[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 304 Network.bunker1router.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 305 Network.bunker1host[1].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 306 Network.bunker1host[1].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 307 Network.bunker1host[1].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 308 Network.bunker1host[1].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 309 Network.bunker3router.eth[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 310 Network.bunker3router.eth[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 311 Network.bunker3router.eth[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 312 Network.bunker3router.eth[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 313 Network.bunker3router.eth[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 314 Network.bunker3router.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 315 Network.bunker3router.eth[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 316 Network.bunker3router.eth[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 317 Network.bunker3router.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 318 Network.bunker3host[2].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 319 Network.bunker3host[2].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 320 Network.bunker3host[2].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 321 Network.bunker3host[2].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 322 Network.bunker1router.eth[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 323 Network.bunker1router.eth[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 324 Network.bunker1router.eth[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 325 Network.bunker1router.eth[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 326 Network.bunker1router.eth[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 327 Network.bunker1router.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 328 Network.bunker1router.eth[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 329 Network.bunker1router.eth[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 330 Network.bunker1router.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 331 Network.bunker1host[2].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 332 Network.bunker1host[2].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 333 Network.bunker1host[2].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 334 Network.bunker1host[2].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 335 Network.bunker1host[2].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 336 Network.bunker3host[3].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 337 Network.bunker3host[3].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 338 Network.bunker3host[3].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 339 Network.bunker3host[3].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 340 Network.bunker3host[3].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 341 Network.bunker3host[3].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 342 Network.bunker3host[3].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 343 Network.bunker3host[3].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 344 Network.bunker3host[3].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 345 Network.bunker3host[3].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 346 Network.bunker3host[3].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 347 Network.bunker3router.eth[4].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 348 Network.bunker3router.eth[4].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 349 Network.bunker3router.eth[4].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 350 Network.bunker3router.eth[4].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 351 Network.bunker3router.eth[4].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 352 Network.bunker3router.eth[4].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 353 Network.bunker3router.eth[4].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 354 Network.bunker3router.eth[4].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 355 Network.bunker3router.eth[4].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 356 Network.bunker3router.eth[4].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 357 Network.bunker3router.eth[4].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 358 Network.bunker3host[3].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 359 Network.bunker3host[3].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 360 Network.bunker3host[3].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 361 Network.bunker3host[3].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 362 Network.bunker3host[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 363 Network.bunker3host[0].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 364 Network.bunker3host[0].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 365 Network.bunker3host[0].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 366 Network.bunker3host[0].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 367 Network.bunker3host[0].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 368 Network.bunker3host[0].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 369 Network.bunker3host[0].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 370 Network.bunker3host[0].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 371 Network.bunker3host[0].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 372 Network.bunker3host[0].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 373 Network.bunker3router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 374 Network.bunker3router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 375 Network.bunker2host[1].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 376 Network.bunker3host[2].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 377 Network.bunker2host[2].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 378 Network.bunker2router.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 379 Network.bunker2router.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 380 Network.bunker2router.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 381 Network.bunker2router.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 382 Network.bunker2router.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 383 Network.bunker2router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 384 Network.bunker2router.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 385 Network.bunker2router.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 386 Network.bunker2router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 387 Network.bunker2host[0].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 388 Network.bunker2host[0].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 389 Network.bunker2host[0].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 390 Network.bunker2host[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 391 Network.bunker2host[0].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 392 Network.bunker1host[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 393 Network.bunker1host[0].ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 394 Network.bunker1host[0].eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 395 Network.bunker1host[0].eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 396 Network.bunker1host[0].eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 397 Network.bunker1host[0].eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 398 Network.bunker1host[0].eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 399 Network.bunker1host[0].eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 400 Network.bunker1host[0].eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 401 Network.bunker1host[0].eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 402 Network.bunker1host[0].eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 403 Network.bunker1router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 404 Network.bunker1router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 405 Network.bunker1host[1].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 406 Network.bunker1router.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 407 Network.bunker1router.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 408 Network.bunker1router.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 409 Network.bunker1router.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 410 Network.bunker1router.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 411 Network.bunker1router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 412 Network.bunker1router.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 413 Network.bunker1router.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 414 Network.bunker3router.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 415 Network.bunker3router.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 416 Network.bunker3router.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 417 Network.bunker3router.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 418 Network.bunker3router.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 419 Network.bunker3router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 420 Network.bunker3router.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 421 Network.bunker3router.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 422 Network.bunker1router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 423 Network.bunker1host[0].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 424 Network.bunker1host[0].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 425 Network.bunker1host[0].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 426 Network.bunker1host[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 427 Network.bunker3router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 428 Network.bunker3host[0].eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 429 Network.bunker3host[0].eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 430 Network.bunker3host[0].ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 431 Network.bunker3host[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 432 Network.bunker1host[0].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 433 Network.bunker3host[3].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+vector 434 Network.bunker3host[0].app[1] chunkLength:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source chunkLength
+attr title "Chunk Length"
+0	106686 8883 0 17250 0 298.0000003276 348 0 347 60378 13987570
+1	115569 8 0 0 0 0 1 0 0 0 0
+2	115577 8 0 0 0 0 1 0 0 0 0
+3	115585 744 0 17042 0 295.0000012784 31 0 30 465 9455
+4	116329 8 0 0 0 0 1 0 0 0 0
+5	116337 8 0 0 0 0 1 0 0 0 0
+6	116345 466 0 16563 0 286.0000006904 20 0 19 190 2470
+7	116811 8 0 0 0 0 1 0 0 0 0
+8	116819 8 0 0 0 0 1 0 0 0 0
+9	116827 438 0 16108 0 278.0000017584 19 0 18 171 2109
+10	117265 9 0 0 0 0 1 0 0 0 0
+11	117274 9 0 0 0 0 1 0 0 0 0
+12	117283 284 0 15050 0 258.0000017032 12 0 11 66 506
+13	117567 9 0 0 0 0 1 0 0 0 0
+14	117576 9 0 0 0 0 1 0 0 0 0
+15	117585 1348 0 16850 0 292.0000013744 53 0 52 1378 48230
+16	118933 53 0 307 0 7.0000036984 3 0 2 3 5
+17	118986 9 0 0 0 0 1 0 0 0 0
+18	118995 305 0 16413 0 284.0000011984 13 0 12 78 650
+19	119300 9 0 0 0 0 1 0 0 0 0
+20	119309 9 0 0 0 0 1 0 0 0 0
+21	119318 382 0 15942 0 275.0000013416 16 0 15 120 1240
+22	119700 9 0 0 0 0 1 0 0 0 0
+23	119709 9 0 0 0 0 1 0 0 0 0
+24	119718 132 0 14855 0 255.0000024464 6 0 5 15 55
+25	119850 9 0 0 0 0 1 0 0 0 0
+26	119859 9 0 0 0 0 1 0 0 0 0
+27	119868 953 0 17028 0 295.0000006552 38 0 37 703 17575
+28	120821 9 0 0 0 0 1 0 0 0 0
+29	120830 9 0 0 0 0 1 0 0 0 0
+30	120839 1606 0 17223 0 297.0000006552 63 0 62 1953 81375
+31	122445 9 0 0 0 0 1 0 0 0 0
+32	122454 9 0 0 0 0 1 0 0 0 0
+33	122463 807 0 17120 0 296.0000006552 32 0 31 496 10416
+34	123270 9 0 0 0 0 1 0 0 0 0
+35	123279 9 0 0 0 0 1 0 0 0 0
+36	123288 980 5 17125 5 297 60 28 970 9375 5222309
+37	124268 981 7 17131 5 297 60 48 990 10575 5621309
+38	125249 1040 8 17134 5 297 60 528 8064 93240 385372736
+39	126289 47666 8 17268 0.1 300 3000 0 85920 932400 40913696000
+40	173955 941 8 17134 5 297 60 0 6.88e-08 1.376e-07 9.46688e-15
+41	174896 1062 8 17134 5 297 60 528 8064 93240 385372736
+42	175958 47666 8 17268 0.1 300 3000 0 85920 932400 40913696000
+43	223624 1004 8 17134 5 297 60 66 1008 11655 6021449
+44	224628 955 8 17134 5 297 62 0 1 2 2
+45	225583 959 8 17134 5 297 62 0 528 1056 557568
+46	226542 1572 9 17137 5.0000000592 297.0000000592 60 66 1008 11655 6021449
+47	228114 1573 11 17143 5.0000001092 297.0000001092 60 66 1008 11655 6021449
+48	229687 1573 11 17143 5.0000001092 297.0000001092 60 66 1008 11655 6021449
+49	231260 8867 12 17214 5.0000001092 297.000000546 340 48 1017 62858 33897056
+50	240127 8867 14 17216 5.0000001092 297.000000546 340 48 1017 62858 33897056
+51	248994 5537 15 17155 5.0000001092 297.0000001092 204 528 8280 276576 1104358784
+52	254531 47944 15 17268 0.1 300 3000 0 103920 2765760 141618572800
+53	302475 5320 15 17155 5.0000001092 297.0000001092 204 0 5.848e-07 4.204e-06 1.04949696e-12
+54	307795 5520 15 17155 5.0000001092 297.0000001092 204 528 8280 276576 1104358784
+55	313315 47944 15 17268 0.1 300 3000 0 103920 2765760 141618572800
+56	361259 5319 15 17155 5.0000001092 297.0000001092 204 66 1035 34572 17255606
+57	366578 5928 15 17155 5.0000001092 297.0000001092 238 0 2 48 62
+58	372506 6020 15 17155 5.0000001092 297.0000001092 238 0 7624 37728 98918656
+59	378526 5341 16 17158 5.0000001684 297.0000001684 204 66 1035 34572 17255606
+60	383867 5340 18 17164 5.0000002184 297.0000002184 204 66 1035 34572 17255606
+61	389207 5340 18 17164 5.0000002184 297.0000002184 204 66 1035 34572 17255606
+62	394547 14950 19 17241 5.0000002184 298.0000002184 574 48 1017 81174 40342226
+63	409497 14950 21 17243 5.0000002184 298.0000002184 574 48 1017 81174 40342226
+64	424447 9328 22 17244 5.0000002184 298.0000002184 347 528 528 183216 96738048
+65	433775 48147 22 17268 0.1 300 3000 0 31680 1832160 22832409600
+66	481922 9465 22 17244 5.0000002184 298.0000002184 347 0 2.064e-07 1.0664e-05 1.15022592e-12
+67	491387 9308 22 17244 5.0000002184 298.0000002184 347 528 528 183216 96738048
+68	500695 48147 22 17268 0.1 300 3000 0 31680 1832160 22832409600
+69	548842 8961 22 17244 5.0000002184 298.0000002184 347 66 66 22902 1511532
+70	557803 11507 22 17244 5.0000002184 298.0000002184 464 0 3 193 293
+71	569310 11843 22 17244 5.0000002184 298.0000002184 464 0 1584 101904 81683712
+72	581153 8982 23 17245 5.0000002776 298.0000002776 347 66 66 22902 1511532
+73	590135 8983 25 17247 5.0000003276 298.0000003276 347 66 66 22902 1511532
+74	599118 8983 25 17247 5.0000003276 298.0000003276 347 66 66 22902 1511532
+75	608101 8983 26 17248 5.0000003276 298.0000003276 347 48 48 16656 799488
+76	617084 8983 28 17250 5.0000003276 298.0000003276 347 28 28 9716 272048
+77	626067 593 35 17127 6 297 39 28 960 9070 6389194
+78	626660 917 36 17257 6 300 59 28 843 6926 3320758
+79	627577 594 39 17133 6 297 39 48 980 9850 6767594
+80	628171 964 40 17263 6 300 61 48 863 8218 3627670
+81	629135 633 41 17136 6 297 39 528 7984 84416 456629120
+82	629768 47673 41 17268 0.1 300 3000 0 79840 844160 47050918400
+83	677441 598 41 17136 6 297 39 0 5.536e-07 7.136e-07 3.1952384e-13
+84	678039 666 41 17136 6 297 39 528 7984 84416 456629120
+85	678705 47673 41 17268 0.1 300 3000 0 79840 844160 47050918400
+86	726378 627 41 17136 6 297 39 66 998 10552 7134830
+87	727005 615 41 17136 6 297 42 0 1 3 3
+88	727620 622 41 17136 6 297 42 0 7016 8072 49781824
+89	728242 1025 42 17266 6 300 61 528 7048 74528 252370048
+90	729267 47699 42 17266 0.1 300 3000 0 70640 726080 26210726400
+91	776966 946 42 17266 6 300 61 0 6.696e-07 8.072e-07 4.5783104e-13
+92	777912 1058 42 17266 6 300 61 528 7048 74528 252370048
+93	778970 47699 42 17266 0.1 300 3000 0 70640 726080 26210726400
+94	826669 997 42 17266 6 300 61 66 881 9316 3943282
+95	827666 964 42 17266 6 300 64 0 1 3 3
+96	828630 970 42 17266 6 300 64 0 528 1584 836352
+97	829600 1021 43 17139 6.0000000592 297.0000000592 39 66 998 10552 7134830
+98	830621 1553 44 17231 6.0000000592 298.0000000592 60 66 881 9076 3885682
+99	832174 1021 47 17145 6.0000001092 297.0000001092 39 66 998 10552 7134830
+100	833195 1060 47 17145 6.0000001092 297.0000001092 39 66 998 10552 7134830
+101	834255 1613 48 17233 6.0000001092 298.0000001092 60 66 881 9076 3885682
+102	835868 1613 48 17233 6.0000001092 298.0000001092 60 66 881 9076 3885682
+103	837481 6825 49 17234 6.0000001092 298.0000001092 252 48 1017 63935 39479613
+104	844306 6825 53 17236 6.0000001092 298.0000001092 252 48 1017 63935 39479613
+105	851131 4460 55 17237 6.0000001092 298.0000001092 159 528 7984 239928 1005482688
+106	855591 50880 55 17268 0.1 300 3000 0 107200 2399280 123461472000
+107	906471 4224 55 17237 6.0000001092 298.0000001092 159 0 6.008e-07 2.4232e-06 6.9095872e-13
+108	910695 4449 55 17237 6.0000001092 298.0000001092 159 528 7984 239928 1005482688
+109	915144 50880 55 17268 0.1 300 3000 0 107200 2399280 123461472000
+110	966024 4291 55 17237 6.0000001092 298.0000001092 159 66 998 29991 15710667
+111	970315 4551 55 17237 6.0000001092 298.0000001092 177 0 2 22 26
+112	974866 4595 55 17237 6.0000001092 298.0000001092 177 0 5800 19288 48904000
+113	979461 4300 57 17238 6.0000001684 298.0000001684 159 66 998 29991 15710667
+114	983761 4299 59 17240 6.0000002184 298.0000002184 159 66 998 29991 15710667
+115	988060 4299 59 17240 6.0000002184 298.0000002184 159 66 998 29991 15710667
+116	992359 599 90 16938 7 295 36 28 942 9977 5956233
+117	992958 850 92 16454 7 286 51 28 995 13727 9883521
+118	993808 972 94 17258 7 300 58 28 915 9461 5695451
+119	994780 600 98 16944 7 295 36 48 962 10697 6369713
+120	995380 852 99 16462 7 286 51 48 1015 14747 10453001
+121	996232 973 100 17264 7 300 58 48 935 10621 6097091
+122	997205 636 101 16947 7 295 36 528 7840 90760 433054016
+123	997841 50715 101 17268 0.1 300 3000 0 78400 907600 43614598400
+124	1048556 546 101 16947 7 295 36 0 0 0 0
+125	1049102 636 101 16947 7 295 36 528 7840 90760 433054016
+126	1049738 50715 101 17268 0.1 300 3000 0 78400 907600 43614598400
+127	1100453 601 101 16947 7 295 36 66 980 11345 6766469
+128	1101054 546 101 16947 7 295 36 0 0 0 0
+129	1101600 546 101 16947 7 295 36 0 0 0 0
+130	1102146 902 102 16466 7 286 51 528 8264 125320 704026688
+131	1103048 50673 102 17268 0.1 300 3000 0 87920 1253200 72813728000
+132	1153721 811 102 16466 7 286 51 0 5e-07 9.016e-07 4.1128256e-13
+133	1154532 921 102 16466 7 286 51 528 8264 125320 704026688
+134	1155453 50673 102 17268 0.1 300 3000 0 87920 1253200 72813728000
+135	1206126 872 102 16466 7 286 51 66 1033 15665 11000417
+136	1206998 826 102 16466 7 286 53 0 1 2 2
+137	1207824 830 102 16466 7 286 53 0 528 1056 557568
+138	1208654 1031 103 17267 7 300 58 528 7624 93320 415887296
+139	1209685 50721 103 17267 0.1 300 3000 0 76240 927920 44062304000
+140	1260406 956 103 17267 7 300 58 0 6.536e-07 7.912e-07 4.3665984e-13
+141	1261362 1064 103 17267 7 300 58 528 7624 93320 415887296
+142	1262426 50721 103 17267 0.1 300 3000 0 76240 927920 44062304000
+143	1313147 1006 103 17267 7 300 58 66 953 11665 6498239
+144	1314153 982 103 17267 7 300 61 0 1 3 3
+145	1315135 988 103 17267 7 300 61 0 528 1584 836352
+146	1316123 980 104 16972 7.0000000592 295.0000002696 36 66 980 11345 6766469
+147	1317103 1387 105 16565 7.0000000592 286.0000008288 51 66 1033 15665 11000417
+148	1318490 1549 106 16949 7.0000000592 295.0000000592 57 66 953 11599 6493883
+149	1320039 981 110 16981 7.0000001092 295.0000003196 36 66 980 11345 6766469
+150	1321020 981 110 16981 7.0000001092 295.0000003196 36 66 980 11345 6766469
+151	1322001 1388 111 16567 7.0000001092 286.0000008788 51 66 1033 15665 11000417
+152	1323389 1388 111 16567 7.0000001092 286.0000008788 51 66 1033 15665 11000417
+153	1324777 1549 112 16953 7.0000001092 295.0000001092 57 66 953 11599 6493883
+154	1326326 1549 112 16953 7.0000001092 295.0000001092 57 66 953 11599 6493883
+155	1327875 2470 152 17185 7.0000003276 297.0000003276 92 1 92 4278 263810
+156	1330345 2994 153 17186 7.0000003276 297.0000003276 112 28 28 3136 87808
+157	1333339 2994 155 17188 7.0000003276 297.0000003276 112 48 48 5376 258048
+158	1336333 3106 156 17189 7.0000003276 297.0000003276 112 528 528 59136 31223808
+159	1339439 50837 156 17268 0.1 300 3000 0 26400 591360 5352652800
+160	1390276 2882 156 17189 7.0000003276 297.0000003276 112 0 0 0 0
+161	1393158 3106 156 17189 7.0000003276 297.0000003276 112 528 528 59136 31223808
+162	1396264 50837 156 17268 0.1 300 3000 0 26400 591360 5352652800
+163	1447101 2994 156 17189 7.0000003276 297.0000003276 112 66 66 7392 487872
+164	1450095 2882 156 17189 7.0000003276 297.0000003276 112 0 0 0 0
+165	1452977 2882 156 17189 7.0000003276 297.0000003276 112 0 0 0 0
+166	1455859 3000 159 17192 7.0000003868 297.0000003868 112 66 66 7392 487872
+167	1458859 506 165 8686 7.0000003964 139.0000003276 20 1 20 210 2870
+168	1459365 3000 172 17201 7.0000004368 297.0000004368 112 66 66 7392 487872
+169	1462365 3000 172 17201 7.0000004368 297.0000004368 112 66 66 7392 487872
+170	1465365 1867 176 16837 7.0000004368 292.0000006872 66 528 8280 174664 836833472
+171	1467232 50857 176 17268 0.1 300 3000 0 120800 1746640 107194310400
+172	1518089 1712 176 16837 7.0000004368 292.0000006872 66 0 2.784e-07 3.664e-07 8.525056e-14
+173	1519801 1865 176 16837 7.0000004368 292.0000006872 66 528 8280 174664 836833472
+174	1521666 50857 176 17268 0.1 300 3000 0 120800 1746640 107194310400
+175	1572523 1801 176 16837 7.0000004368 292.0000006872 66 66 1035 21833 13075523
+176	1574324 1750 176 16837 7.0000004368 292.0000006872 68 0 1 2 2
+177	1576074 1756 176 16837 7.0000004368 292.0000006872 68 0 7104 11328 68308992
+178	1577830 1783 188 16838 7.000000496 292.0000009808 66 66 1035 21833 13075523
+179	1579613 3389 194 17205 7.0000005056 297.0000004368 120 528 7984 216472 971838912
+180	1583002 50941 194 17268 0.1 300 3000 0 112480 2164720 118639776000
+181	1633943 3125 194 17205 7.0000005056 297.0000004368 120 0 5.144e-07 5.456e-07 2.655808e-13
+182	1637068 3387 194 17205 7.0000005056 297.0000004368 120 528 7984 216472 971838912
+183	1640455 50941 194 17268 0.1 300 3000 0 112480 2164720 118639776000
+184	1691396 3268 194 17205 7.0000005056 297.0000004368 120 66 998 27059 15184983
+185	1694664 3164 194 17205 7.0000005056 297.0000004368 122 0 1 2 2
+186	1697828 3170 194 17205 7.0000005056 297.0000004368 122 0 5464 7272 33124160
+187	1700998 1783 197 16840 7.000000546 292.0000010308 66 66 1035 21833 13075523
+188	1702781 1783 197 16840 7.000000546 292.0000010308 66 66 1035 21833 13075523
+189	1704564 334 201 16407 7.000000546 284.0000008988 12 528 6248 38544 168601856
+190	1704898 51337 201 17268 0.1 300 3000 0 62480 385440 16860185600
+191	1756235 301 201 16407 7.000000546 284.0000008988 12 0 0 0 0
+192	1756536 334 201 16407 7.000000546 284.0000008988 12 528 6248 38544 168601856
+193	1756870 51337 201 17268 0.1 300 3000 0 62480 385440 16860185600
+194	1808207 322 201 16407 7.000000546 284.0000008988 12 66 781 4818 2634404
+195	1808529 301 201 16407 7.000000546 284.0000008988 12 0 0 0 0
+196	1808830 301 201 16407 7.000000546 284.0000008988 12 0 0 0 0
+197	1809131 3218 202 17211 7.0000005648 297.000000496 120 66 998 27059 15184983
+198	1812349 326 209 16408 7.0000006052 284.0000011484 12 66 781 4818 2634404
+199	1812675 3219 210 17213 7.0000006148 297.000000546 120 66 998 27059 15184983
+200	1815894 3219 210 17213 7.0000006148 297.000000546 120 66 998 27059 15184983
+201	1819113 1053 215 17015 7.0000006148 295.000000546 38 528 7792 66928 287368576
+202	1820166 50762 215 17268 0.1 300 3000 0 77920 669280 29411852800
+203	1870928 966 215 17015 7.0000006148 295.000000546 38 0 0 0 0
+204	1871894 1053 215 17015 7.0000006148 295.000000546 38 528 7792 66928 287368576
+205	1872947 50762 215 17268 0.1 300 3000 0 77920 669280 29411852800
+206	1923709 1015 215 17015 7.0000006148 295.000000546 38 66 974 8366 4490134
+207	1924724 966 215 17015 7.0000006148 295.000000546 38 0 0 0 0
+208	1925690 966 215 17015 7.0000006148 295.000000546 38 0 0 0 0
+209	1926656 326 218 16410 7.0000006552 284.0000011984 12 66 781 4818 2634404
+210	1926982 326 218 16410 7.0000006552 284.0000011984 12 66 781 4818 2634404
+211	1927308 326 219 16411 7.0000006552 284.0000011984 12 48 763 4602 2464844
+212	1927634 326 221 16413 7.0000006552 284.0000011984 12 28 743 4362 2285564
+213	1927960 1026 223 17018 7.000000674 295.0000006052 38 66 974 8366 4490134
+214	1928986 446 229 15929 7.0000006836 275.0000006708 16 528 7920 61968 350019840
+215	1929432 51176 229 17268 0.1 300 3000 0 79200 619680 35400998400
+216	1980608 410 229 15929 7.0000006836 275.0000006708 16 0 5.36e-08 5.36e-08 2.87296e-15
+217	1981018 447 229 15929 7.0000006836 275.0000006708 16 528 7920 61968 350019840
+218	1981465 51176 229 17268 0.1 300 3000 0 79200 619680 35400998400
+219	2032641 431 229 15929 7.0000006836 275.0000006708 16 66 990 7746 5469060
+220	2033072 428 229 15929 7.0000006836 275.0000006708 17 0 1 1 1
+221	2033500 431 229 15929 7.0000006836 275.0000006708 17 0 1656 1656 2742336
+222	2033931 1025 230 17025 7.000000724 295.0000006552 38 66 974 8366 4490134
+223	2034956 1025 230 17025 7.000000724 295.0000006552 38 66 974 8366 4490134
+224	2035981 1025 231 17026 7.000000724 295.0000006552 38 48 956 7682 4201270
+225	2037006 1001 233 17028 7.000000724 295.0000006552 37 28 936 6886 3907894
+226	2038007 268 234 16581 7.000000724 287 14 94 907 8117 5530187
+227	2038275 433 239 15937 7.0000007428 275.0000012916 16 66 990 7746 5469060
+228	2038708 433 241 15939 7.0000007928 275.0000013416 16 66 990 7746 5469060
+229	2039141 433 241 15939 7.0000007928 275.0000013416 16 66 990 7746 5469060
+230	2039574 433 242 15940 7.0000007928 275.0000013416 16 48 972 7458 5195388
+231	2040007 408 244 15942 7.0000007928 275.0000013416 15 28 952 7102 4902172
+232	2040415 359 245 16449 7.0000007928 286 20 96 987 12699 9654753
+233	2040774 1516 263 16844 7.0000016756 292.0000010308 54 528 8280 156224 871310848
+234	2042290 50770 263 17268 0.1 300 3000 0 151360 1562240 107651315200
+235	2093060 1379 263 16844 7.0000016756 292.0000010308 54 0 0 0 0
+236	2094439 1516 263 16844 7.0000016756 292.0000010308 54 528 8280 156224 871310848
+237	2095955 50770 263 17268 0.1 300 3000 0 151360 1562240 107651315200
+238	2146725 1465 263 16844 7.0000016756 292.0000010308 54 66 1035 19528 13614232
+239	2148190 1379 263 16844 7.0000016756 292.0000010308 54 0 0 0 0
+240	2149569 1379 263 16844 7.0000016756 292.0000010308 54 0 0 0 0
+241	2150948 1480 271 16845 7.0000025084 292.0000013244 54 66 1035 19528 13614232
+242	2152428 1480 273 16847 7.0000025584 292.0000013744 54 66 1035 19528 13614232
+243	2153908 1480 273 16847 7.0000025584 292.0000013744 54 66 1035 19528 13614232
+244	2155388 1480 274 16848 7.0000025584 292.0000013744 54 48 1017 18556 12928720
+245	2156868 1477 276 16850 7.0000025584 292.0000013744 54 28 997 17476 12208080
+246	2158345 732 348 17256 8 300 44 28 893 8845 5031443
+247	2159077 814 349 16857 8 293 48 28 906 10791 6085719
+248	2159891 733 363 17262 8 300 44 48 913 9725 5402843
+249	2160624 815 364 16863 8 293 48 48 926 11751 6536559
+250	2161439 776 369 17265 8 300 44 528 7448 84136 369100736
+251	2162215 50698 369 17265 0.1 300 3000 0 74480 800320 36326566400
+252	2212913 708 369 17265 8 300 44 0 1.952e-07 2.64e-07 4.283648e-14
+253	2213621 798 369 17265 8 300 44 528 7448 84136 369100736
+254	2214419 50698 369 17265 0.1 300 3000 0 74480 800320 36326566400
+255	2265117 755 369 17265 8 300 44 66 931 10517 5767199
+256	2265872 724 369 17265 8 300 46 0 1 2 2
+257	2266596 729 369 17265 8 300 46 0 6768 7296 46084608
+258	2267325 862 370 16866 8 293 48 528 7552 100920 446409408
+259	2268187 50779 370 17268 0.1 300 3000 0 80800 1009200 47454124800
+260	2318966 766 370 16866 8 293 48 0 6.88e-08 6.88e-08 4.73344e-15
+261	2319732 873 370 16866 8 293 48 528 7552 100920 446409408
+262	2320605 50779 370 17268 0.1 300 3000 0 80800 1009200 47454124800
+263	2371384 826 370 16866 8 293 48 66 944 12615 6975147
+264	2372210 771 370 16866 8 293 49 0 1 1 1
+265	2372981 773 370 16866 8 293 49 0 528 528 278784
+266	2373754 1173 375 17138 8.0000000592 297.0000000592 43 66 931 10004 5504030
+267	2374927 1298 376 16869 8.0000000592 293.0000000592 48 66 944 12615 6975147
+268	2376225 1173 385 17144 8.0000001092 297.0000001092 43 66 931 10004 5504030
+269	2377398 1173 385 17144 8.0000001092 297.0000001092 43 66 931 10004 5504030
+270	2378571 1298 386 16875 8.0000001092 293.0000001092 48 66 944 12615 6975147
+271	2379869 1298 386 16875 8.0000001092 293.0000001092 48 66 944 12615 6975147
+272	2381167 4526 390 17147 8.0000001092 297.0000001092 166 48 990 49802 30562072
+273	2385693 4526 400 17153 8.0000001092 297.0000001092 166 48 990 49802 30562072
+274	2390219 2785 405 17156 8.0000001092 297.0000001092 99 528 7792 156408 639764544
+275	2393004 50818 405 17268 0.1 300 3000 0 80800 1564080 69422880000
+276	2443822 2640 405 17156 8.0000001092 297.0000001092 99 0 2.984e-07 1.048e-06 1.4577024e-13
+277	2446462 2779 405 17156 8.0000001092 297.0000001092 99 528 7792 156408 639764544
+278	2449241 50818 405 17268 0.1 300 3000 0 80800 1564080 69422880000
+279	2500059 2681 405 17156 8.0000001092 297.0000001092 99 66 974 19551 9996321
+280	2502740 2862 405 17156 8.0000001092 297.0000001092 111 0 1 12 12
+281	2505602 2886 405 17156 8.0000001092 297.0000001092 111 0 528 6336 3345408
+282	2508488 2682 412 17159 8.0000001684 297.0000001684 99 66 974 19551 9996321
+283	2511170 2682 423 17165 8.0000002184 297.0000002184 99 66 974 19551 9996321
+284	2513852 2682 423 17165 8.0000002184 297.0000002184 99 66 974 19551 9996321
+285	2516534 1163 489 17024 8.0000004368 295.0000006392 41 528 8064 157696 875419392
+286	2517697 50659 489 17268 0.1 300 3000 0 142160 1576960 104159654400
+287	2568356 1074 489 17024 8.0000004368 295.0000006392 41 0 3.192e-07 8.64e-07 2.5088384e-13
+288	2569430 1162 489 17024 8.0000004368 295.0000006392 41 528 8064 157696 875419392
+289	2570592 50659 489 17268 0.1 300 3000 0 142160 1576960 104159654400
+290	2621251 1123 489 17024 8.0000004368 295.0000006392 41 66 1008 19712 13678428
+291	2622374 1127 489 17024 8.0000004368 295.0000006392 44 0 1 3 3
+292	2623501 1136 489 17024 8.0000004368 295.0000006392 44 0 5464 12000 51446144
+293	2624637 1119 503 17030 8.000000496 295.0000009088 41 66 1008 19712 13678428
+294	2625756 1119 517 17032 8.000000546 295.0000009588 41 66 1008 19712 13678428
+295	2626875 1119 517 17032 8.000000546 295.0000009588 41 66 1008 19712 13678428
+296	2627994 538 521 16545 8.000000546 286.0000005196 19 528 8064 67632 357965824
+297	2628532 50592 521 17268 0.1 300 3000 0 80640 676320 35796582400
+298	2679124 487 521 16545 8.000000546 286.0000005196 19 0 0 0 0
+299	2679611 538 521 16545 8.000000546 286.0000005196 19 528 8064 67632 357965824
+300	2680149 50592 521 17268 0.1 300 3000 0 80640 676320 35796582400
+301	2730741 520 521 16545 8.000000546 286.0000005196 19 66 1008 8454 5593216
+302	2731261 487 521 16545 8.000000546 286.0000005196 19 0 0 0 0
+303	2731748 487 521 16545 8.000000546 286.0000005196 19 0 0 0 0
+304	2732235 519 536 16553 8.0000006052 286.0000006404 19 66 1008 8454 5593216
+305	2732754 519 547 16560 8.0000006552 286.0000006904 19 66 1008 8454 5593216
+306	2733273 519 547 16560 8.0000006552 286.0000006904 19 66 1008 8454 5593216
+307	2733792 518 548 16561 8.0000006552 286.0000006904 19 48 990 8112 5295028
+308	2734310 518 550 16563 8.0000006552 286.0000006904 19 28 970 7732 4978148
+309	2734828 1756 567 17217 8.0000006836 297.000000546 62 528 7984 175088 858999424
+310	2736584 50825 567 17268 0.1 300 3000 0 79840 1750880 90362867200
+311	2787409 1619 567 17217 8.0000006836 297.000000546 62 0 4.696e-07 8.72e-07 3.0917504e-13
+312	2789028 1755 567 17217 8.0000006836 297.000000546 62 528 7984 175088 858999424
+313	2790783 50825 567 17268 0.1 300 3000 0 79840 1750880 90362867200
+314	2841608 1694 567 17217 8.0000006836 297.000000546 62 66 998 21886 13421866
+315	2843302 1674 567 17217 8.0000006836 297.000000546 65 0 1 3 3
+316	2844976 1682 567 17217 8.0000006836 297.000000546 65 0 1792 3760 5563648
+317	2846658 1705 575 17218 8.0000007428 297.0000006052 62 66 998 21886 13421866
+318	2848363 1705 582 17220 8.0000007928 297.0000006552 62 66 998 21886 13421866
+319	2850068 1705 582 17220 8.0000007928 297.0000006552 62 66 998 21886 13421866
+320	2851773 1705 583 17221 8.0000007928 297.0000006552 62 48 980 20770 12654058
+321	2853478 1703 585 17223 8.0000007928 297.0000006552 62 28 960 19530 11848058
+322	2855181 505 593 16102 8.00000089 278.0000013188 18 528 7456 60888 303499712
+323	2855686 50699 593 17268 0.1 300 3000 0 74560 608880 30349971200
+324	2906385 456 593 16102 8.00000089 278.0000013188 18 0 0 0 0
+325	2906841 505 593 16102 8.00000089 278.0000013188 18 528 7456 60888 303499712
+326	2907346 50699 593 17268 0.1 300 3000 0 74560 608880 30349971200
+327	2958045 488 593 16102 8.00000089 278.0000013188 18 66 932 7611 4742183
+328	2958533 456 593 16102 8.00000089 278.0000013188 18 0 0 0 0
+329	2958989 456 593 16102 8.00000089 278.0000013188 18 0 0 0 0
+330	2959445 489 594 16103 8.0000009492 278.0000017084 18 66 932 7611 4742183
+331	2959934 489 596 16105 8.0000009992 278.0000017584 18 66 932 7611 4742183
+332	2960423 489 596 16105 8.0000009992 278.0000017584 18 66 932 7611 4742183
+333	2960912 489 597 16106 8.0000009992 278.0000017584 18 48 914 7287 4474019
+334	2961401 488 599 16108 8.0000009992 278.0000017584 18 28 894 6927 4189739
+335	2961889 397 600 16192 8.0000009992 282 21 47 898 9867 5905335
+336	2962286 967 663 17047 10 296 59 28 875 4243 1775545
+337	2963253 967 665 17051 10 296 59 48 895 5423 1968865
+338	2964220 1026 666 17053 10 296 59 528 7304 51880 139725376
+339	2965246 50698 666 17268 0.1 300 3000 0 73040 518800 15042054400
+340	3015944 1010 666 17053 10 296 59 0 3.44e-07 6.88e-07 1.420032e-13
+341	3016954 1091 666 17053 10 296 59 528 7304 51880 139725376
+342	3018045 50698 666 17268 0.1 300 3000 0 73040 518800 15042054400
+343	3068743 1032 666 17053 10 296 59 66 913 6485 2183209
+344	3069775 1059 666 17053 10 296 65 0 1 6 6
+345	3070834 1071 666 17053 10 296 65 0 528 3168 1672704
+346	3071905 1600 667 17055 10.0000000592 296.0000000592 59 66 913 6485 2183209
+347	3073505 1600 669 17059 10.0000001092 296.0000001092 59 66 913 6485 2183209
+348	3075105 1600 669 17059 10.0000001092 296.0000001092 59 66 913 6485 2183209
+349	3076705 850 705 17114 10.000000546 296.000000546 31 528 2344 18440 14193728
+350	3077555 50696 705 17268 0.1 300 3000 0 23440 184400 1419372800
+351	3128251 787 705 17114 10.000000546 296.000000546 31 0 0 0 0
+352	3129038 850 705 17114 10.000000546 296.000000546 31 528 2344 18440 14193728
+353	3129888 50696 705 17268 0.1 300 3000 0 23440 184400 1419372800
+354	3180584 819 705 17114 10.000000546 296.000000546 31 66 293 2305 221777
+355	3181403 787 705 17114 10.000000546 296.000000546 31 0 0 0 0
+356	3182190 787 705 17114 10.000000546 296.000000546 31 0 0 0 0
+357	3182977 839 706 17115 10.0000006052 296.0000006052 31 66 293 2305 221777
+358	3183816 839 708 17117 10.0000006552 296.0000006552 31 66 293 2305 221777
+359	3184655 839 708 17117 10.0000006552 296.0000006552 31 66 293 2305 221777
+360	3185494 839 709 17118 10.0000006552 296.0000006552 31 48 275 1747 148841
+361	3186333 839 711 17120 10.0000006552 296.0000006552 31 28 255 1127 91361
+362	3187172 728 720 17048 11 296 44 28 997 10508 5524436
+363	3187900 729 722 17052 11 296 44 48 1017 11388 5962356
+364	3188629 772 723 17054 11 296 44 528 8280 97440 408741120
+365	3189401 50709 723 17268 0.1 300 3000 0 82800 974400 41766220800
+366	3240110 697 723 17054 11 296 44 0 5.2e-07 8.768e-07 3.9770624e-13
+367	3240807 792 723 17054 11 296 44 528 8280 97440 408741120
+368	3241599 50709 723 17268 0.1 300 3000 0 82800 974400 41766220800
+369	3292308 749 723 17054 11 296 44 66 1035 12180 6386580
+370	3293057 714 723 17054 11 296 46 0 1 2 2
+371	3293771 718 723 17054 11 296 46 0 528 1056 557568
+372	3294489 1207 724 17056 11.0000000592 296.0000000592 44 66 1035 12180 6386580
+373	3295696 1207 726 17060 11.0000001092 296.0000001092 44 66 1035 12180 6386580
+374	3296903 1207 726 17060 11.0000001092 296.0000001092 44 66 1035 12180 6386580
+375	3298110 240 1122 17254 16.0000007928 300 13 35 835 5534 3195318
+376	3298350 368 1279 16452 17.0000006552 286 18 25 962 8055 5059349
+377	3298718 352 1312 16935 18 295 20 35 934 9369 5792505
+378	3299070 316 2014 15044 26.0000012524 258.0000008516 11 968 7952 51104 283811712
+379	3299386 50872 2014 17268 0.1 300 3000 0 79520 511040 29517990400
+380	3350258 291 2014 15044 26.0000012524 258.0000008516 11 0 6.64e-08 6.64e-08 4.40896e-15
+381	3350549 316 2014 15044 26.0000012524 258.0000008516 11 968 7952 51104 283811712
+382	3350865 50872 2014 17268 0.1 300 3000 0 79520 511040 29517990400
+383	3401737 306 2014 15044 26.0000012524 258.0000008516 11 121 994 6388 4434558
+384	3402043 309 2014 15044 26.0000012524 258.0000008516 12 0 1 1 1
+385	3402352 312 2014 15044 26.0000012524 258.0000008516 12 0 5872 5872 34480384
+386	3402664 306 2021 15045 26.0000013556 258.0000016532 11 121 994 6388 4434558
+387	3402970 306 2023 15047 26.0000014056 258.0000017032 11 121 994 6388 4434558
+388	3403276 306 2023 15047 26.0000014056 258.0000017032 11 121 994 6388 4434558
+389	3403582 306 2024 15048 26.0000014056 258.0000017032 11 103 976 6190 4208154
+390	3403888 305 2026 15050 26.0000014056 258.0000017032 11 83 956 5970 3964954
+391	3404193 252 2035 16415 28 285 15 20 952 8278 6236970
+392	3404445 566 2359 16383 34 284 34 28 936 9167 5505335
+393	3405011 567 2365 16385 34 284 34 48 956 9847 5885615
+394	3405578 601 2368 16386 34 284 34 528 7792 83672 400071872
+395	3406179 50812 2368 17268 0.1 300 3000 0 77920 836720 40566444800
+396	3456991 571 2368 16386 34 284 34 0 3.672e-07 5.776e-07 1.572032e-13
+397	3457562 633 2368 16386 34 284 34 528 7792 83672 400071872
+398	3458195 50812 2368 17268 0.1 300 3000 0 77920 836720 40566444800
+399	3509007 599 2368 16386 34 284 34 66 974 10459 6251123
+400	3509606 594 2368 16386 34 284 37 0 1 3 3
+401	3510200 600 2368 16386 34 284 37 0 528 1584 836352
+402	3510800 937 2369 16387 34.0000000592 284.0000002496 34 66 974 10459 6251123
+403	3511737 937 2371 16389 34.0000001092 284.0000002996 34 66 974 10459 6251123
+404	3512674 937 2371 16389 34.0000001092 284.0000002996 34 66 974 10459 6251123
+405	3513611 317 2525 17253 35.0000006552 300 18 72 885 7973 4882339
+406	3513928 861 2554 17036 35.000000898 295.0000009588 30 648 7840 137392 772928512
+407	3514789 50919 2554 17268 0.1 300 3000 0 139200 1373920 91290841600
+408	3565708 774 2554 17036 35.000000898 295.0000009588 30 0 0 0 0
+409	3566482 861 2554 17036 35.000000898 295.0000009588 30 648 7840 137392 772928512
+410	3567343 50919 2554 17268 0.1 300 3000 0 139200 1373920 91290841600
+411	3618262 832 2554 17036 35.000000898 295.0000009588 30 81 980 17174 12077008
+412	3619094 774 2554 17036 35.000000898 295.0000009588 30 0 0 0 0
+413	3619868 774 2554 17036 35.000000898 295.0000009588 30 0 0 0 0
+414	3620642 144 2561 14849 35.0000009636 255.0000018348 5 1024 5552 14792 56366144
+415	3620786 50972 2561 17268 0.1 300 3000 0 55520 147920 5636614400
+416	3671758 129 2561 14849 35.0000009636 255.0000018348 5 0 0 0 0
+417	3671887 144 2561 14849 35.0000009636 255.0000018348 5 1024 5552 14792 56366144
+418	3672031 50972 2561 17268 0.1 300 3000 0 55520 147920 5636614400
+419	3723003 139 2561 14849 35.0000009636 255.0000018348 5 128 694 1849 880721
+420	3723142 129 2561 14849 35.0000009636 255.0000018348 5 0 0 0 0
+421	3723271 129 2561 14849 35.0000009636 255.0000018348 5 0 0 0 0
+422	3723400 833 2562 17037 35.0000010908 295.0000012284 30 81 980 17174 12077008
+423	3724233 833 2564 17039 35.0000011408 295.0000012784 30 81 980 17174 12077008
+424	3725066 833 2564 17039 35.0000011408 295.0000012784 30 81 980 17174 12077008
+425	3725899 833 2565 17040 35.0000011408 295.0000012784 30 63 962 16634 11468464
+426	3726732 832 2567 17042 35.0000011408 295.0000012784 30 43 942 16034 10815104
+427	3727564 138 2569 14850 35.0000011532 255.0000023964 5 128 694 1849 880721
+428	3727702 138 2571 14852 35.0000012032 255.0000024464 5 128 694 1849 880721
+429	3727840 138 2571 14852 35.0000012032 255.0000024464 5 128 694 1849 880721
+430	3727978 138 2572 14853 35.0000012032 255.0000024464 5 110 676 1759 815777
+431	3728116 137 2574 14855 35.0000012032 255.0000024464 5 90 656 1659 747417
+432	3728253 307 2814 16382 40 284 18 52 928 8575 5354439
+433	3728560 96 3030 14428 42.0000006552 246 5 272 867 2691 1689833
+434	3728656 377 3400 16792 49 292 22 51 989 9716 5350324
+
